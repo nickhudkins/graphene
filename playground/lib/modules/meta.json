@@ -237,9 +237,9 @@
     ], 
     "django.db.models": [
       "graphene.contrib.django.utils", 
+      "graphene.contrib.django.types", 
       "graphene.contrib.django.tests.test_converter", 
       "graphene.contrib.django.tests.models", 
-      "graphene.contrib.django.options", 
       "graphene.contrib.django.converter"
     ], 
     "django.db.models.manager.Manager": [
@@ -375,7 +375,9 @@
     ], 
     "py.test.raises": [
       "graphene.utils.tests.test_proxy_snake_dict", 
-      "graphene.core.types.tests.test_objecttype", 
+      "graphene.core.classtypes.tests.test_objecttype", 
+      "graphene.core.classtypes.tests.test_interface", 
+      "graphene.core.classtypes.test_options", 
       "graphene.contrib.django.tests.test_schema", 
       "graphene.contrib.django.tests.test_query", 
       "graphene.contrib.django.tests.test_converter"
@@ -398,8 +400,7 @@
     ], 
     "pytest.raises": [
       "graphene.relay.tests.test_types", 
-      "graphene.core.types.tests.test_argument", 
-      "graphene.contrib.django.tests.test_types"
+      "graphene.core.types.tests.test_argument"
     ], 
     "reloadmodule": [
       "test.test_importhooks"
