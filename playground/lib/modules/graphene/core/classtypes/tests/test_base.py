@@ -42,7 +42,7 @@ def test_fieldsclasstype_definition_order():
         name = String()
         char = Character.NonNull()
 
-    assert Query._meta.fields_map.keys() == ['name', 'char']
+    assert list(Query._meta.fields_map.keys()) == ['name', 'char']
 
 
 def test_fieldsclasstype():
