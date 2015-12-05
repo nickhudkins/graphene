@@ -245,6 +245,9 @@
     "django.db.models.manager.Manager": [
       "graphene.contrib.django.utils"
     ], 
+    "django.db.models.query.QuerySet": [
+      "graphene.contrib.django.utils"
+    ], 
     "dl.RTLD_NOW": [
       "distutils.tests.setuptools_build_ext"
     ], 
@@ -375,6 +378,7 @@
     ], 
     "py.test.raises": [
       "graphene.utils.tests.test_proxy_snake_dict", 
+      "graphene.utils.tests.test_lazylist", 
       "graphene.core.classtypes.tests.test_objecttype", 
       "graphene.core.classtypes.tests.test_interface", 
       "graphene.core.classtypes.test_options", 
