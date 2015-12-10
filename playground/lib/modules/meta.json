@@ -235,6 +235,9 @@
     "django.conf.urls.url": [
       "graphene.contrib.django.tests.test_urls"
     ], 
+    "django.db.connections": [
+      "graphene.contrib.django.debug.plugin"
+    ], 
     "django.db.models": [
       "graphene.contrib.django.utils", 
       "graphene.contrib.django.types", 
@@ -247,6 +250,12 @@
     ], 
     "django.db.models.query.QuerySet": [
       "graphene.contrib.django.utils"
+    ], 
+    "django.utils.encoding.force_text": [
+      "graphene.contrib.django.debug.sql.tracking"
+    ], 
+    "django.utils.six": [
+      "graphene.contrib.django.debug.sql.tracking"
     ], 
     "dl.RTLD_NOW": [
       "distutils.tests.setuptools_build_ext"
@@ -400,7 +409,8 @@
       "pyrepl.pygame_console"
     ], 
     "pytest": [
-      "graphene.relay.tests.test_query"
+      "graphene.relay.tests.test_query", 
+      "graphene.contrib.django.debug.tests.test_query"
     ], 
     "pytest.raises": [
       "graphene.relay.tests.test_types", 
