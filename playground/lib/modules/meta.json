@@ -232,8 +232,17 @@
     "cocoasupport.CocoaInteracter": [
       "pyrepl.python_reader"
     ], 
+    "django.conf.settings": [
+      "graphene.contrib.django.management.commands.graphql_schema"
+    ], 
     "django.conf.urls.url": [
       "graphene.contrib.django.tests.test_urls"
+    ], 
+    "django.core.management.base.BaseCommand": [
+      "graphene.contrib.django.management.commands.graphql_schema"
+    ], 
+    "django.core.management.base.CommandError": [
+      "graphene.contrib.django.management.commands.graphql_schema"
     ], 
     "django.db.connections": [
       "graphene.contrib.django.debug.plugin"

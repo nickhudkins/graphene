@@ -3746,6 +3746,30 @@
         "warnings"
       ]
     }, 
+    "graphene.contrib.django.management": {
+      "dir": "graphene/contrib/django/management"
+    }, 
+    "graphene.contrib.django.management.__init__": {
+      "file": "graphene/contrib/django/management/__init__.py", 
+      "imports": []
+    }, 
+    "graphene.contrib.django.management.commands": {
+      "dir": "graphene/contrib/django/management/commands"
+    }, 
+    "graphene.contrib.django.management.commands.__init__": {
+      "file": "graphene/contrib/django/management/commands/__init__.py", 
+      "imports": []
+    }, 
+    "graphene.contrib.django.management.commands.graphql_schema": {
+      "file": "graphene/contrib/django/management/commands/graphql_schema.py", 
+      "imports": [
+        "django.conf.settings", 
+        "django.core.management.base.BaseCommand", 
+        "django.core.management.base.CommandError", 
+        "importlib", 
+        "json"
+      ]
+    }, 
     "graphene.contrib.django.options": {
       "file": "graphene/contrib/django/options.py", 
       "imports": [
