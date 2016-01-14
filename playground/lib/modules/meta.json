@@ -243,6 +243,9 @@
       "graphene.contrib.django.tests.test_forms", 
       "graphene.contrib.django.forms"
     ], 
+    "django.core.management": [
+      "graphene.contrib.django.tests.test_command"
+    ], 
     "django.core.management.base.BaseCommand": [
       "graphene.contrib.django.management.commands.graphql_schema"
     ], 
@@ -401,7 +404,8 @@
     ], 
     "mock.patch": [
       "graphene.core.types.tests.test_base", 
-      "graphene.contrib.django.tests.test_types"
+      "graphene.contrib.django.tests.test_types", 
+      "graphene.contrib.django.tests.test_command"
     ], 
     "myfixes.fix_explicit.FixExplicit": [
       "lib2to3.tests.test_refactor"

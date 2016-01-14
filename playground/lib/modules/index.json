@@ -3762,7 +3762,8 @@
       "imports": [
         "graphene.contrib.django.filter.fields", 
         "graphene.contrib.django.filter.filterset", 
-        "graphene.contrib.django.utils"
+        "graphene.contrib.django.utils", 
+        "warnings"
       ]
     }, 
     "graphene.contrib.django.filter.fields": {
@@ -3863,11 +3864,14 @@
     "graphene.contrib.django.management.commands.graphql_schema": {
       "file": "graphene/contrib/django/management/commands/graphql_schema.py", 
       "imports": [
+        "distutils.version", 
         "django.conf.settings", 
         "django.core.management.base.BaseCommand", 
         "django.core.management.base.CommandError", 
+        "graphene.contrib.django", 
         "importlib", 
-        "json"
+        "json", 
+        "optparse"
       ]
     }, 
     "graphene.contrib.django.options": {
@@ -3891,6 +3895,14 @@
       "imports": [
         "__future__", 
         "django.db.models"
+      ]
+    }, 
+    "graphene.contrib.django.tests.test_command": {
+      "file": "graphene/contrib/django/tests/test_command.py", 
+      "imports": [
+        "django.core.management", 
+        "mock.patch", 
+        "six"
       ]
     }, 
     "graphene.contrib.django.tests.test_converter": {
@@ -13591,7 +13603,7 @@
     "graphene.utils.misc": "from collections import OrderedDict\n\nfrom graphql.core.type import GraphQLEnumType, GraphQLEnumValue\n\n\ndef enum_to_graphql_enum(enumeration):\n    return GraphQLEnumType(\n        name=enumeration.__name__,\n        values=OrderedDict([(it.name, GraphQLEnumValue(it.value))\n                            for it in enumeration]),\n        description=enumeration.__doc__\n    )\n", 
     "graphene.utils.proxy_snake_dict": "import collections\n\nfrom .str_converters import to_camel_case, to_snake_case\n\n\nclass ProxySnakeDict(collections.MutableMapping):\n    __slots__ = ('data')\n\n    def __init__(self, data):\n        self.data = data\n\n    def __contains__(self, key):\n        return key in self.data or to_camel_case(key) in self.data\n\n    def get(self, key, default=None):\n        try:\n            return self.__getitem__(key)\n        except KeyError:\n            return default\n\n    def __iter__(self):\n        return self.iterkeys()\n\n    def __len__(self):\n        return len(self.data)\n\n    def __delitem__(self, item):\n        raise TypeError('ProxySnakeDict does not support item deletion')\n\n    def __setitem__(self, item, value):\n        raise TypeError('ProxySnakeDict does not support item assignment')\n\n    def __getitem__(self, key):\n        if key in self.data:\n            item = self.data[key]\n        else:\n            camel_key = to_camel_case(key)\n            if camel_key in self.data:\n                item = self.data[camel_key]\n            else:\n                raise KeyError(key, camel_key)\n\n        if isinstance(item, dict):\n            return ProxySnakeDict(item)\n        return item\n\n    def keys(self):\n        return list(self.iterkeys())\n\n    def items(self):\n        return list(self.iteritems())\n\n    def iterkeys(self):\n        for k in self.data.keys():\n            yield to_snake_case(k)\n        return\n\n    def iteritems(self):\n        for k in self.iterkeys():\n            yield k, self[k]\n\n    def to_data_dict(self):\n        return self.data.__class__(self.iteritems())\n\n    def __eq__(self, other):\n        return self.to_data_dict() == other.to_data_dict()\n\n    def __repr__(self):\n        data_repr = self.to_data_dict().__repr__()\n        return '<ProxySnakeDict {}>'.format(data_repr)\n", 
     "graphene.utils.resolve_only_args": "from functools import wraps\n\n\ndef resolve_only_args(func):\n    @wraps(func)\n    def inner(self, args, info):\n        return func(self, **args)\n    return inner\n", 
-    "graphene.utils.str_converters": "import re\n\n\n# From this response in Stackoverflow\n# http://stackoverflow.com/a/19053800/1072990\ndef to_camel_case(snake_str):\n    components = snake_str.split('_')\n    # We capitalize the first letter of each component except the first one\n    # with the 'title' method and join them together.\n    return components[0] + \"\".join(x.title() for x in components[1:])\n\n\n# From this response in Stackoverflow\n# http://stackoverflow.com/a/1176023/1072990\ndef to_snake_case(name):\n    s1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', name)\n    return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', s1).lower()\n", 
+    "graphene.utils.str_converters": "import re\n\n\n# From this response in Stackoverflow\n# http://stackoverflow.com/a/19053800/1072990\ndef to_camel_case(snake_str):\n    components = snake_str.split('_')\n    # We capitalize the first letter of each component except the first one\n    # with the 'title' method and join them together.\n    return components[0] + \"\".join(x.title() if x else '_' for x in components[1:])\n\n\n# From this response in Stackoverflow\n# http://stackoverflow.com/a/1176023/1072990\ndef to_snake_case(name):\n    s1 = re.sub('(.)([A-Z][a-z]+)', r'\\1_\\2', name)\n    return re.sub('([a-z0-9])([A-Z])', r'\\1_\\2', s1).lower()\n", 
     "graphql.__init__": "", 
     "graphql.core.__init__": "from .execution import ExecutionResult, execute\nfrom .language.parser import parse\nfrom .language.source import Source\nfrom .validation import validate\n\n\ndef graphql(schema, request='', root=None, args=None, operation_name=None):\n    try:\n        source = Source(request, 'GraphQL request')\n        ast = parse(source)\n        validation_errors = validate(schema, ast)\n        if validation_errors:\n            return ExecutionResult(\n                errors=validation_errors,\n                invalid=True,\n            )\n        return execute(\n            schema,\n            root or object(),\n            ast,\n            operation_name,\n            args or {},\n        )\n    except Exception as e:\n        return ExecutionResult(\n            errors=[e],\n            invalid=True,\n        )\n", 
     "graphql.core.error": "from .language.location import get_location\n\n\nclass Error(Exception):\n    pass\n\n\nclass GraphQLError(Error):\n    __slots__ = 'message', 'nodes', 'stack', '_source', '_positions'\n\n    def __init__(self, message, nodes=None, stack=None, source=None, positions=None):\n        super(GraphQLError, self).__init__(message)\n        self.message = message or 'An unknown error occurred.'\n        self.nodes = nodes\n        self.stack = stack or message\n        self._source = source\n        self._positions = positions\n\n    @property\n    def source(self):\n        if self._source:\n            return self._source\n        if self.nodes:\n            node = self.nodes[0]\n            return node and node.loc and node.loc.source\n\n    @property\n    def positions(self):\n        if self._positions:\n            return self._positions\n        if self.nodes is not None:\n            node_positions = [node.loc and node.loc.start for node in self.nodes]\n            if any(node_positions):\n                return node_positions\n\n    @property\n    def locations(self):\n        if self.positions and self.source:\n            return [get_location(self.source, pos) for pos in self.positions]\n\n\ndef format_error(error):\n    formatted_error = {\n        'message': error.message,\n    }\n    if error.locations is not None:\n        formatted_error['locations'] = [\n            {'line': loc.line, 'column': loc.column}\n            for loc in error.locations\n        ]\n\n    return formatted_error\n", 
