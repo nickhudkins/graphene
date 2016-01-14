@@ -233,10 +233,15 @@
       "pyrepl.python_reader"
     ], 
     "django.conf.settings": [
-      "graphene.contrib.django.management.commands.graphql_schema"
+      "graphene.contrib.django.management.commands.graphql_schema", 
+      "graphene.contrib.django.filter.filterset"
     ], 
     "django.conf.urls.url": [
       "graphene.contrib.django.tests.test_urls"
+    ], 
+    "django.core.exceptions.ValidationError": [
+      "graphene.contrib.django.tests.test_forms", 
+      "graphene.contrib.django.forms"
     ], 
     "django.core.management.base.BaseCommand": [
       "graphene.contrib.django.management.commands.graphql_schema"
@@ -252,7 +257,9 @@
       "graphene.contrib.django.types", 
       "graphene.contrib.django.tests.test_converter", 
       "graphene.contrib.django.tests.models", 
-      "graphene.contrib.django.converter"
+      "graphene.contrib.django.filter.filterset", 
+      "graphene.contrib.django.converter", 
+      "graphene.contrib.django.compat"
     ], 
     "django.db.models.manager.Manager": [
       "graphene.contrib.django.utils"
@@ -260,11 +267,40 @@
     "django.db.models.query.QuerySet": [
       "graphene.contrib.django.utils"
     ], 
+    "django.db.models.related.RelatedObject": [
+      "graphene.contrib.django.compat"
+    ], 
+    "django.forms.fields.BaseTemporalField": [
+      "graphene.contrib.django.form_converter"
+    ], 
     "django.utils.encoding.force_text": [
       "graphene.contrib.django.debug.sql.tracking"
     ], 
     "django.utils.six": [
       "graphene.contrib.django.debug.sql.tracking"
+    ], 
+    "django.utils.text.capfirst": [
+      "graphene.contrib.django.filter.filterset"
+    ], 
+    "django.utils.translation.ugettext_lazy": [
+      "graphene.contrib.django.forms"
+    ], 
+    "django_filters": [
+      "graphene.contrib.django.utils", 
+      "graphene.contrib.django.filter.tests.test_fields", 
+      "graphene.contrib.django.filter.tests.filters"
+    ], 
+    "django_filters.Filter": [
+      "graphene.contrib.django.filter.filterset"
+    ], 
+    "django_filters.MultipleChoiceFilter": [
+      "graphene.contrib.django.filter.filterset"
+    ], 
+    "django_filters.filterset.FilterSet": [
+      "graphene.contrib.django.filter.filterset"
+    ], 
+    "django_filters.filterset.FilterSetMetaclass": [
+      "graphene.contrib.django.filter.filterset"
     ], 
     "dl.RTLD_NOW": [
       "distutils.tests.setuptools_build_ext"
@@ -402,6 +438,8 @@
       "graphene.core.classtypes.test_options", 
       "graphene.contrib.django.tests.test_schema", 
       "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.tests.test_forms", 
+      "graphene.contrib.django.tests.test_form_converter", 
       "graphene.contrib.django.tests.test_converter"
     ], 
     "pyexpat": [
@@ -419,6 +457,8 @@
     ], 
     "pytest": [
       "graphene.relay.tests.test_query", 
+      "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.filter.tests.test_fields", 
       "graphene.contrib.django.debug.tests.test_query"
     ], 
     "pytest.raises": [
@@ -497,7 +537,7 @@
       "pyrepl.commands"
     ], 
     "singledispatch.singledispatch": [
-      "graphene.contrib.django.converter"
+      "graphene.contrib.django.utils"
     ], 
     "sitecustomize": [
       "site", 
