@@ -113,4 +113,4 @@ def test_object_type_not_union_if_abstract():
     assert Query._meta.type_name == 'Query'
     assert Query._meta.description == 'Query description'
     assert isinstance(object_type, GraphQLObjectType)
-    assert Query._meta.fields_map.keys() == ['field1', 'field2']
+    assert list(Query._meta.fields_map.keys()) == ['field1', 'field2']
