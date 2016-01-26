@@ -440,6 +440,8 @@
       "graphene.core.classtypes.tests.test_objecttype", 
       "graphene.core.classtypes.tests.test_interface", 
       "graphene.core.classtypes.test_options", 
+      "graphene.contrib.sqlalchemy.tests.test_schema", 
+      "graphene.contrib.sqlalchemy.tests.test_converter", 
       "graphene.contrib.django.tests.test_schema", 
       "graphene.contrib.django.tests.test_query", 
       "graphene.contrib.django.tests.test_forms", 
@@ -461,13 +463,15 @@
     ], 
     "pytest": [
       "graphene.relay.tests.test_query", 
+      "graphene.contrib.sqlalchemy.tests.test_query", 
       "graphene.contrib.django.tests.test_query", 
       "graphene.contrib.django.filter.tests.test_fields", 
       "graphene.contrib.django.debug.tests.test_query"
     ], 
     "pytest.raises": [
       "graphene.relay.tests.test_types", 
-      "graphene.core.types.tests.test_argument"
+      "graphene.core.types.tests.test_argument", 
+      "graphene.contrib.sqlalchemy.tests.test_types"
     ], 
     "reloadmodule": [
       "test.test_importhooks"
@@ -541,11 +545,57 @@
       "pyrepl.commands"
     ], 
     "singledispatch.singledispatch": [
+      "graphene.contrib.sqlalchemy.converter", 
       "graphene.contrib.django.utils"
     ], 
     "sitecustomize": [
       "site", 
       "test.test_site"
+    ], 
+    "sqlalchemy.Column": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.Date": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.ForeignKey": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.Integer": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.String": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.Table": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.ext.declarative.api.DeclarativeMeta": [
+      "graphene.contrib.sqlalchemy.utils"
+    ], 
+    "sqlalchemy.ext.declarative.declarative_base": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.inspection.inspect": [
+      "graphene.contrib.sqlalchemy.types"
+    ], 
+    "sqlalchemy.orm.exc.NoResultFound": [
+      "graphene.contrib.sqlalchemy.types"
+    ], 
+    "sqlalchemy.orm.interfaces": [
+      "graphene.contrib.sqlalchemy.converter"
+    ], 
+    "sqlalchemy.orm.query.Query": [
+      "graphene.contrib.sqlalchemy.utils"
+    ], 
+    "sqlalchemy.orm.relationship": [
+      "graphene.contrib.sqlalchemy.tests.models"
+    ], 
+    "sqlalchemy.orm.scoped_session": [
+      "graphene.contrib.sqlalchemy.tests.test_query"
+    ], 
+    "sqlalchemy.orm.sessionmaker": [
+      "graphene.contrib.sqlalchemy.tests.test_query"
     ], 
     "strop": [
       "test.test_strop"
@@ -626,6 +676,8 @@
       "test.test_zipimport_support"
     ], 
     "tests.utils.assert_equal_lists": [
+      "graphene.contrib.sqlalchemy.tests.test_types", 
+      "graphene.contrib.sqlalchemy.tests.test_schema", 
       "graphene.contrib.django.tests.test_types", 
       "graphene.contrib.django.tests.test_schema"
     ], 
