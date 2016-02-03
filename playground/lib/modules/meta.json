@@ -323,6 +323,15 @@
     "docutils.utils.Reporter": [
       "distutils.command.check"
     ], 
+    "enum.Enum": [
+      "graphene.utils.enum"
+    ], 
+    "enum.IntEnum": [
+      "graphene.utils.enum"
+    ], 
+    "enum.unique": [
+      "graphene.utils.enum"
+    ], 
     "fcntl": [
       "asyncore", 
       "mailbox", 
@@ -574,6 +583,7 @@
       "graphene.contrib.sqlalchemy.utils"
     ], 
     "sqlalchemy.ext.declarative.declarative_base": [
+      "graphene.contrib.sqlalchemy.tests.test_converter", 
       "graphene.contrib.sqlalchemy.tests.models"
     ], 
     "sqlalchemy.inspection.inspect": [
@@ -596,6 +606,10 @@
     ], 
     "sqlalchemy.orm.sessionmaker": [
       "graphene.contrib.sqlalchemy.tests.test_query"
+    ], 
+    "sqlalchemy_utils.types.choice.ChoiceType": [
+      "graphene.contrib.sqlalchemy.tests.test_converter", 
+      "graphene.contrib.sqlalchemy.converter"
     ], 
     "strop": [
       "test.test_strop"
