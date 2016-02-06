@@ -264,6 +264,9 @@
       "graphene.contrib.django.converter", 
       "graphene.contrib.django.compat"
     ], 
+    "django.db.models.Count": [
+      "graphene.contrib.django.debug.tests.test_query"
+    ], 
     "django.db.models.manager.Manager": [
       "graphene.contrib.django.utils"
     ], 
