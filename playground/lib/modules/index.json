@@ -3726,7 +3726,6 @@
     "graphene.contrib.django.debug.tests.test_query": {
       "file": "graphene/contrib/django/debug/tests/test_query.py", 
       "imports": [
-        "django.db.models.Count", 
         "graphene", 
         "graphene.contrib.django", 
         "graphene.contrib.django.debug.plugin", 

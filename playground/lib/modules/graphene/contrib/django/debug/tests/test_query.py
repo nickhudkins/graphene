@@ -9,17 +9,7 @@ from ..plugin import DjangoDebugPlugin
 
 # from examples.starwars_django.models import Character
 
-from django.db.models import Count
-
 pytestmark = pytest.mark.django_db
-
-
-def count(qs):
-    query = qs.query
-    query.add_annotation(Count('*'), alias='__count', is_summary=True)
-    query.select = []
-    query.default_cols = False
-    return query
 
 
 def test_should_query_field():
@@ -154,18 +144,14 @@ def test_should_query_connection():
                 }
             }]
         },
-        '__debug': {
-            'sql': [{
-                'rawSql': str(count(Reporter.objects.all()))
-            }, {
-                'rawSql': str(Reporter.objects.all()[:1].query)
-            }],
-        }
     }
     schema = graphene.Schema(query=Query, plugins=[DjangoDebugPlugin()])
     result = schema.execute(query)
     assert not result.errors
-    assert result.data == expected
+    assert result.data['allReporters'] == expected['allReporters']
+    assert 'COUNT' in result.data['__debug']['sql'][0]['rawSql']
+    query = str(Reporter.objects.all()[:1].query)
+    assert result.data['__debug']['sql'][1]['rawSql'] == query
 
 
 @pytest.mark.skipif(not DJANGO_FILTER_INSTALLED,
@@ -213,15 +199,11 @@ def test_should_query_connectionfilter():
                 }
             }]
         },
-        '__debug': {
-            'sql': [{
-                'rawSql': str(count(Reporter.objects.all()))
-            }, {
-                'rawSql': str(Reporter.objects.all()[:1].query)
-            }]
-        }
     }
     schema = graphene.Schema(query=Query, plugins=[DjangoDebugPlugin()])
     result = schema.execute(query)
     assert not result.errors
-    assert result.data == expected
+    assert result.data['allReporters'] == expected['allReporters']
+    assert 'COUNT' in result.data['__debug']['sql'][0]['rawSql']
+    query = str(Reporter.objects.all()[:1].query)
+    assert result.data['__debug']['sql'][1]['rawSql'] == query
