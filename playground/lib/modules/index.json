@@ -3732,6 +3732,7 @@
         "graphene.contrib.django.debug.plugin", 
         "graphene.contrib.django.filter", 
         "graphene.contrib.django.tests.models", 
+        "graphene.contrib.django.utils", 
         "pytest"
       ]
     }, 

@@ -2,7 +2,7 @@ import pytest
 
 import graphene
 from graphene.contrib.django import DjangoNode, DjangoConnectionField
-from graphene.contrib.django.filter import DjangoFilterConnectionField
+from graphene.contrib.django.utils import DJANGO_FILTER_INSTALLED
 
 from ...tests.models import Reporter
 from ..plugin import DjangoDebugPlugin
@@ -159,7 +159,7 @@ def test_should_query_connection():
                 'rawSql': str(count(Reporter.objects.all()))
             }, {
                 'rawSql': str(Reporter.objects.all()[:1].query)
-            }]
+            }],
         }
     }
     schema = graphene.Schema(query=Query, plugins=[DjangoDebugPlugin()])
@@ -168,7 +168,11 @@ def test_should_query_connection():
     assert result.data == expected
 
 
+@pytest.mark.skipif(not DJANGO_FILTER_INSTALLED,
+                    reason="requires django-filter")
 def test_should_query_connectionfilter():
+    from graphene.contrib.django.filter import DjangoFilterConnectionField
+
     r1 = Reporter(last_name='ABA')
     r1.save()
     r2 = Reporter(last_name='Griffin')
