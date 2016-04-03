@@ -239,6 +239,25 @@
     "django.conf.urls.url": [
       "graphene.contrib.django.tests.test_urls"
     ], 
+    "django.contrib.postgres.fields.ArrayField": [
+      "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.compat"
+    ], 
+    "django.contrib.postgres.fields.HStoreField": [
+      "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.compat"
+    ], 
+    "django.contrib.postgres.fields.IntegerRangeField": [
+      "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.tests.test_converter"
+    ], 
+    "django.contrib.postgres.fields.JSONField": [
+      "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.compat"
+    ], 
+    "django.contrib.postgres.fields.RangeField": [
+      "graphene.contrib.django.compat"
+    ], 
     "django.core.exceptions.ValidationError": [
       "graphene.contrib.django.tests.test_forms", 
       "graphene.contrib.django.forms"
@@ -258,6 +277,7 @@
     "django.db.models": [
       "graphene.contrib.django.utils", 
       "graphene.contrib.django.types", 
+      "graphene.contrib.django.tests.test_query", 
       "graphene.contrib.django.tests.test_converter", 
       "graphene.contrib.django.tests.models", 
       "graphene.contrib.django.filter.filterset", 
@@ -474,6 +494,7 @@
       "graphene.relay.tests.test_query", 
       "graphene.contrib.sqlalchemy.tests.test_query", 
       "graphene.contrib.django.tests.test_query", 
+      "graphene.contrib.django.tests.test_converter", 
       "graphene.contrib.django.filter.tests.test_fields", 
       "graphene.contrib.django.debug.tests.test_query"
     ], 
