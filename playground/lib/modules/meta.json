@@ -423,6 +423,10 @@
     "imgfile": [
       "test.test_imageop"
     ], 
+    "iso8601": [
+      "graphene.core.types.tests.test_custom_scalars", 
+      "graphene.core.types.custom_scalars"
+    ], 
     "macostools": [
       "test.test_macostools"
     ], 
