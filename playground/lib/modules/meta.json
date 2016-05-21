@@ -287,7 +287,7 @@
       "graphene.contrib.django.management.commands.graphql_schema"
     ], 
     "django.db.connections": [
-      "graphene.contrib.django.debug.plugin"
+      "graphene.contrib.django.debug.middleware"
     ], 
     "django.db.models": [
       "graphene.contrib.django.utils", 
@@ -474,6 +474,8 @@
       "ensurepip.__init__"
     ], 
     "promise.Promise": [
+      "graphene.utils.promise_middleware", 
+      "graphene.contrib.django.debug.middleware", 
       "graphql.execution.executors.thread", 
       "graphql.execution.executors.process", 
       "graphql.execution.executors.gevent", 
