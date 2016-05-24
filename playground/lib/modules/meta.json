@@ -499,9 +499,9 @@
     "py.test.raises": [
       "graphene.utils.tests.test_proxy_snake_dict", 
       "graphene.utils.tests.test_lazylist", 
+      "graphene.core.classtypes.tests.test_options", 
       "graphene.core.classtypes.tests.test_objecttype", 
       "graphene.core.classtypes.tests.test_interface", 
-      "graphene.core.classtypes.test_options", 
       "graphene.contrib.sqlalchemy.tests.test_schema", 
       "graphene.contrib.sqlalchemy.tests.test_converter", 
       "graphene.contrib.django.tests.test_schema", 

@@ -4276,13 +4276,6 @@
         "graphql.type"
       ]
     }, 
-    "graphene.core.classtypes.test_options": {
-      "file": "graphene/core/classtypes/test_options.py", 
-      "imports": [
-        "graphene.core.classtypes", 
-        "py.test.raises"
-      ]
-    }, 
     "graphene.core.classtypes.tests": {
       "dir": "graphene/core/classtypes/tests"
     }, 
@@ -4346,6 +4339,13 @@
         "graphene.core.types", 
         "py.test.raises", 
         "graphql.type"
+      ]
+    }, 
+    "graphene.core.classtypes.tests.test_options": {
+      "file": "graphene/core/classtypes/tests/test_options.py", 
+      "imports": [
+        "graphene.core.classtypes", 
+        "py.test.raises"
       ]
     }, 
     "graphene.core.classtypes.tests.test_scalar": {
