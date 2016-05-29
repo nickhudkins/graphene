@@ -815,6 +815,46 @@ body {
     padding: 30px 0;
   }
 }
+.homepage-intro {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.homepage-intro:before,
+.homepage-intro:after {
+  content: '';
+  display: table;
+}
+.homepage-intro:after {
+  clear: both;
+}
+.homepage-intro:last-child {
+  margin-right: 0%;
+}
+.homepage-schema {
+  *zoom: 1;
+  float: left;
+  clear: none;
+  text-align: inherit;
+  width: 48.5%;
+  margin-left: 0%;
+  margin-right: 3%;
+}
+.homepage-schema:before,
+.homepage-schema:after {
+  content: '';
+  display: table;
+}
+.homepage-schema:after {
+  clear: both;
+}
+.homepage-schema:last-child {
+  margin-right: 0%;
+}
 .docs-aside {
   *zoom: 1;
   float: left;
