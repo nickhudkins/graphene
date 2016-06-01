@@ -312,7 +312,8 @@
       "graphene.contrib.django.form_converter"
     ], 
     "django.utils.encoding.force_text": [
-      "graphene.contrib.django.debug.sql.tracking"
+      "graphene.contrib.django.debug.sql.tracking", 
+      "graphene.contrib.django.converter"
     ], 
     "django.utils.six": [
       "graphene.contrib.django.debug.sql.tracking"
@@ -321,6 +322,8 @@
       "graphene.contrib.django.filter.filterset"
     ], 
     "django.utils.translation.ugettext_lazy": [
+      "graphene.contrib.django.tests.test_converter", 
+      "graphene.contrib.django.tests.models", 
       "graphene.contrib.django.forms"
     ], 
     "django_filters": [

@@ -3667,6 +3667,7 @@
       "file": "graphene/contrib/django/converter.py", 
       "imports": [
         "django.db.models", 
+        "django.utils.encoding.force_text", 
         "graphene.contrib.django.compat", 
         "graphene.contrib.django.fields", 
         "graphene.contrib.django.utils", 
@@ -3902,7 +3903,8 @@
       "file": "graphene/contrib/django/tests/models.py", 
       "imports": [
         "__future__", 
-        "django.db.models"
+        "django.db.models", 
+        "django.utils.translation.ugettext_lazy"
       ]
     }, 
     "graphene.contrib.django.tests.test_command": {
@@ -3918,6 +3920,7 @@
       "imports": [
         "django.contrib.postgres.fields.IntegerRangeField", 
         "django.db.models", 
+        "django.utils.translation.ugettext_lazy", 
         "graphene", 
         "graphene.contrib.django.compat", 
         "graphene.contrib.django.converter", 
