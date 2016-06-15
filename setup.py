@@ -73,7 +73,7 @@ setup(
         'django': [
             'Django>=1.6.0',
             'singledispatch>=3.4.0.3',
-            '-e git+https://github.com/nickhudkins/graphql-django-view#egg=graphql-django-view',
+            '-e git+https://github.com/nickhudkins/graphql-django-view.git#egg=graphql-django-view',
         ],
         'sqlalchemy': [
             'sqlalchemy',
